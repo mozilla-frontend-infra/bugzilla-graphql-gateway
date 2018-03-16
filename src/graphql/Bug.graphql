@@ -1,0 +1,110 @@
+type UserInformation {
+  id: Int
+  name: String
+  username: String
+}
+
+type Flag {
+  id: Int
+  name: String
+  typeId: Int
+  created: DateTime
+  modified: DateTime
+  status: String
+  setter: String
+  requestee: String
+}
+
+type Bug {
+  actualTime: Int
+  aliases: [String]
+  assignedTo: UserInformation
+  blocks: [Int]
+  cc: [UserInformation]
+  classification: String
+  component: String
+  created: DateTime
+  creator: UserInformation
+  deadline: DateTime
+  dependsOn: [Int]
+  duplicateOf: Int
+  estimatedTime: Int
+  flags: [Flag]
+  groups: [String]
+  id: Int!
+  isCcAccessible: Boolean
+  isConfirmed: Boolean
+  isOpen: Boolean
+  isCreatorAccessible: Boolean
+  keywords: [String]
+  lastChanged: DateTime
+  operatingSystem: String
+  platform: String
+  priority: String
+  product: String
+  qaContact: UserInformation
+  remainingTime: Int
+  resolution: String
+  seeAlso: [String]
+  severity: String
+  status: String
+  summary: String
+  targetMilestone: String
+  url: String
+  version: String
+  whiteboard: String
+  tags: [String]
+  duplicates: [Int]
+}
+
+input BugSearch {
+  aliases: [String]
+  assignedTos: [String]
+  components: [String]
+  createdAtOrAfter: DateTime
+  creators: [String]
+  ids: [Int]
+  modifiedAtOrAfter: DateTime
+  minimumCommentCounts: [Int]
+  operatingSystems: [String]
+  platforms: [String]
+  priorities: [String]
+  products: [String]
+  resolutions: [String]
+  severities: [String]
+  statuses: [String]
+  summaries: [String]
+  tags: [String]
+  targetMilestones: [String]
+  qaContacts: [String]
+  urls: [String]
+  versions: [String]
+  whiteboards: [String]
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  nextPage: Int
+  previousPage: Int
+}
+
+input Paging {
+  page: Int
+  pageSize: Int
+}
+
+type Edge {
+  cursor: Int
+  node: Bug
+}
+
+type BugPager {
+  pageInfo: PageInfo
+  edges: [Edge]
+}
+
+extend type Query {
+  bug(id: Int!): Bug
+  bugs(search: BugSearch!, paging: Paging): BugPager
+}

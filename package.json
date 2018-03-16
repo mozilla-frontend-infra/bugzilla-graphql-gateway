@@ -1,0 +1,44 @@
+{
+  "name": "bugzilla-graphql-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "main": "build/index.js",
+  "author": "Eli Perelman <eli@eliperelman.com>",
+  "license": "MPL-2.0",
+  "scripts": {
+    "build": "neutrino build --require dotenv/config",
+    "start": "neutrino start --require dotenv/config",
+    "lint": "neutrino lint --require dotenv/config"
+  },
+  "lint-staged": {
+    "*.js": "yarn lint"
+  },
+  "devDependencies": {
+    "@neutrinojs/airbnb-base": "^8.1.1",
+    "@neutrinojs/node": "^8.1.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "neutrino": "^8.1.1",
+    "prettier": "^1.10.2",
+    "raw-loader": "^0.5.1"
+  },
+  "dependencies": {
+    "@eliperelman/graphql-yoga": "^1.1.0",
+    "compression": "^1.7.2",
+    "dataloader": "^1.4.0",
+    "deepmerge": "^2.0.1",
+    "dotenv": "^5.0.0",
+    "graphql-depth-limit": "^1.1.0",
+    "graphql-iso-date": "^3.5.0",
+    "graphql-list-fields": "^2.0.1",
+    "graphql-type-json": "^0.2.0",
+    "graphql-validation-complexity": "^0.2.2",
+    "node-fetch": "^2.0.0",
+    "query-string": "^6.0.0",
+    "sift": "^5.1.0",
+    "source-map-support": "^0.5.3"
+  }
+}

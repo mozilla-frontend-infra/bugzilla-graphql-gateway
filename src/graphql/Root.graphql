@@ -1,0 +1,12 @@
+scalar Date
+scalar Time
+scalar DateTime
+scalar JSON
+
+type Query {
+  root: Boolean
+}
+
+schema {
+  query: Query
+}
