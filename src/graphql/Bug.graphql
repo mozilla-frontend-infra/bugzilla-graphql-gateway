@@ -199,6 +199,9 @@ input BugSearch {
   # The numeric IDs of bugs.
   ids: [Int]
 
+  # Each keyword that is on this bug.
+  keywords: [String]
+
   # Searches for bugs that were modified at this time or later.
   modifiedAtOrAfter: DateTime
 
@@ -209,6 +212,9 @@ input BugSearch {
 
   # The "Operating System" fields of bugs.
   operatingSystems: [String]
+
+  # The ordering of the result in the format of <field>[,<field>...][" DESC"|" ASC"]
+  order: String
 
   # The platforms (sometimes called "Hardware") fields of bugs.
   platforms: [String]
