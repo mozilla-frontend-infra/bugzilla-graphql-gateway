@@ -22,6 +22,7 @@ export const common = [
 export const mappings = {
   actualTime: 'actual_time',
   aliases: 'alias',
+  apiKey: 'api_key',
   assignedTo: 'assigned_to_detail',
   created: 'creation_time',
   dependsOn: 'depends_on',
@@ -78,6 +79,10 @@ export const searchToQuery = args => {
   const inputMappings = Object.keys(mappings);
 
   return Object.entries(args).reduce((query, [key, value]) => {
+    if (!value) {
+      return query;
+    }
+
     const queryKey = common.includes(key)
       ? key
       : inputMappings.includes(key) ? mappings[key] : key;
