@@ -6,14 +6,16 @@ Currently only supports public `query` operations, not `mutation` or `subscripti
 ## Environment variables
 
 By default this gateway relies on the `PORT` and `BUGZILLA_ENDPOINT`. If not set, these
-values default to `3090` and `https://bugzilla.mozilla.org/rest/bug` respectively. To
-override these values, either set them on the command line or
+values default to `3090` and `https://bugzilla.mozilla.org/rest/bug` respectively.
+Additionally, `BUGZILLA_API_KEY` may be set to prevent the API from being rate-limited.
+To override these values, either set them on the command line or
 place a `.env` file in the root of this repo with the following environment variables
 inside of it, using your overrides instead of these defaults:
 
 ```sh
 PORT=3090
 BUGZILLA_ENDPOINT="https://bugzilla.mozilla.org/rest/bug"
+BUGZILLA_API_KEY=<your_bugzilla_api_key>
 ```
 
 ## Launching locally

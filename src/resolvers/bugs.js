@@ -6,6 +6,7 @@ export default {
     bug(parent, { id }, { loaders }, info) {
       const query = {
         include_fields: fieldsToIncludeFields(listFields(info)),
+        ...searchToQuery({ apiKey: process.env.BUGZILLA_API_KEY }),
       };
 
       return loaders.bug.load({ id, query });
@@ -14,6 +15,7 @@ export default {
       const query = {
         ...searchToQuery(search),
         include_fields: fieldsToIncludeFields(listFields(info)),
+        ...searchToQuery({ apiKey: process.env.BUGZILLA_API_KEY }),
       };
 
       return loaders.bugs.load({
