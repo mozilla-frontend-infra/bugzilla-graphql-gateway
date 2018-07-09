@@ -15,9 +15,11 @@ export default {
     },
     bugs(parent, { search, paging = {} }, { loaders }, info) {
       const query = {
-        ...searchToQuery(search),
+        ...searchToQuery({
+          ...search,
+          apiKey,
+        }),
         include_fields: fieldsToIncludeFields(listFields(info)),
-        ...searchToQuery({ apiKey }),
       };
 
       return loaders.bugs.load({
