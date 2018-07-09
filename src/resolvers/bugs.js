@@ -1,12 +1,14 @@
 import listFields from 'graphql-list-fields';
 import { fieldsToIncludeFields, searchToQuery } from '../mappings';
 
+const apiKey = process.env.BUGZILLA_API_KEY;
+
 export default {
   Query: {
     bug(parent, { id }, { loaders }, info) {
       const query = {
         include_fields: fieldsToIncludeFields(listFields(info)),
-        ...searchToQuery({ apiKey: process.env.BUGZILLA_API_KEY }),
+        ...searchToQuery({ apiKey }),
       };
 
       return loaders.bug.load({ id, query });
@@ -15,7 +17,7 @@ export default {
       const query = {
         ...searchToQuery(search),
         include_fields: fieldsToIncludeFields(listFields(info)),
-        ...searchToQuery({ apiKey: process.env.BUGZILLA_API_KEY }),
+        ...searchToQuery({ apiKey }),
       };
 
       return loaders.bugs.load({
