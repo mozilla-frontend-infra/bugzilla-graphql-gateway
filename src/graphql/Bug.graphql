@@ -273,9 +273,9 @@ input BugSearch {
 
 type Comment {
   # The globally unique ID for the comment.
-  id: ID!
+  id: Int!
   # The ID of the bug that this comment is on.
-  bugId: ID!
+  bugId: Int!
   # If the comment was made on an attachment, this will be the ID of that attachment. Otherwise it will be null.
   attachmentId: ID
   # The number of the comment local to the bug. The Description is 0, comments start with 1.
@@ -355,11 +355,11 @@ type BugPager {
 extend type Query {
   # Get information about a single bug using its numeric ID or string alias.
   # Use `bugs()` to search more than one bug at a time.
-  bug(id: ID!): Bug
+  bug(id: Int!): Bug
 
   # Search for multiple bugs based on particular criteria.
   bugs(search: BugSearch!, paging: Paging): BugPager
 
   # Search for all comments for a particular bug using the bug ID
-  comments(id: ID!): [Comment]!
+  comments(id: Int!): [Comment]!
 }
