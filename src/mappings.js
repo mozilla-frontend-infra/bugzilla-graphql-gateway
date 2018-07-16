@@ -30,7 +30,6 @@ export const mappings = {
   attachmentId: 'attachment_id',
   bugId: 'bug_id',
   created: 'creation_time',
-  creationTime: 'creation_time',
   dependsOn: 'depends_on',
   duplicateOf: 'dupe_of',
   estimatedTime: 'estimated_time',

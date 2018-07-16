@@ -49,9 +49,9 @@ export default () => {
       })
     )
   );
-  const comments = new DataLoader(ids =>
+  const comments = new DataLoader(queries =>
     Promise.all(
-      ids.map(async ({ id, query }) => {
+      queries.map(async ({ id, query }) => {
         const url = `${endpoint}/${id}/comment?${stringify(query)}`;
         const response = await fetch(url);
         const { bugs } = await response.json();

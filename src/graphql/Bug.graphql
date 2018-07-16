@@ -285,7 +285,7 @@ type Comment {
   # The login name of the comment's author.
   creator: String!
   # The time (in Bugzilla's timezone) that the comment was added.
-  creationTime: DateTime!
+  created: DateTime!
   # true if this comment is private (only visible to a certain group called the "insidergroup"), false otherwise.
   isPrivate: Boolean!
   # An array of comment tags currently set for the comment.
