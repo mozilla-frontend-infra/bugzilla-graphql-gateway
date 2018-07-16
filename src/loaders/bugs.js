@@ -2,6 +2,7 @@ import DataLoader from 'dataloader';
 import fetch from 'node-fetch';
 import { stringify } from 'query-string';
 import Bug from '../Bug';
+import Comment from '../Comment';
 
 const endpoint =
   process.env.BUGZILLA_ENDPOINT || 'https://bugzilla.mozilla.org/rest/bug';
@@ -48,14 +49,14 @@ export default () => {
       })
     )
   );
-  const comments = new DataLoader(queries =>
+  const comments = new DataLoader(ids =>
     Promise.all(
-      queries.map(async ({ id }) => {
-        const url = `${endpoint}/${id}/comment`;
+      ids.map(async ({ id, query }) => {
+        const url = `${endpoint}/${id}/comment?${stringify(query)}`;
         const response = await fetch(url);
         const { bugs } = await response.json();
 
-        return bugs[id].comments;
+        return bugs[id].comments.map(comment => new Comment(comment));
       })
     )
   );

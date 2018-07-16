@@ -4,9 +4,12 @@ import { common, mappings } from './mappings';
 
 export default class Bug {
   constructor(bug) {
-    common.forEach(field => Object.assign(this, { [field]: bug[field] }));
-    Object.entries(mappings).forEach(([key, value]) =>
-      Object.assign(this, { [key]: bug[value] })
+    common.forEach(
+      field => field in bug && Object.assign(this, { [field]: bug[field] })
+    );
+    Object.entries(mappings).forEach(
+      ([key, value]) =>
+        value in bug && Object.assign(this, { [key]: bug[value] })
     );
 
     if (bug.cc_detail) {

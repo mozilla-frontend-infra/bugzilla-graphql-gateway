@@ -27,8 +27,12 @@ export default {
         paging: { pageSize: 100, page: 0, ...paging },
       });
     },
-    comments(parent, { id }, { loaders }) {
-      return loaders.comments.load({ id });
+    comments(parent, { id }, { loaders }, info) {
+      const query = {
+        include_fields: fieldsToIncludeFields(listFields(info)),
+      };
+
+      return loaders.comments.load({ id, query });
     },
   },
 };

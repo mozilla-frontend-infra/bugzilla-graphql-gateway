@@ -275,9 +275,9 @@ type Comment {
   # The globally unique ID for the comment.
   id: ID!
   # The ID of the bug that this comment is on.
-  bug_id: ID!
+  bugId: ID!
   # If the comment was made on an attachment, this will be the ID of that attachment. Otherwise it will be null.
-  attachment_id: ID
+  attachmentId: ID
   # The number of the comment local to the bug. The Description is 0, comments start with 1.
   count: Int!
   # The actual text of the comment.
@@ -285,11 +285,9 @@ type Comment {
   # The login name of the comment's author.
   creator: String!
   # The time (in Bugzilla's timezone) that the comment was added.
-  creation_time: DateTime!
+  creationTime: DateTime!
   # true if this comment is private (only visible to a certain group called the "insidergroup"), false otherwise.
-  is_private: Boolean!
-  # true if this comment needs Markdown processing; false otherwise.
-  is_markdown: Boolean!
+  isPrivate: Boolean!
   # An array of comment tags currently set for the comment.
   tags: [String]!
 }
