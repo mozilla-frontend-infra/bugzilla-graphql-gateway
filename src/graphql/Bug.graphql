@@ -271,6 +271,27 @@ input BugSearch {
   whiteboards: [String]
 }
 
+type Comment {
+  # The globally unique ID for the comment.
+  id: Int!
+  # The ID of the bug that this comment is on.
+  bugId: Int!
+  # If the comment was made on an attachment, this will be the ID of that attachment. Otherwise it will be null.
+  attachmentId: ID
+  # The number of the comment local to the bug. The Description is 0, comments start with 1.
+  count: Int!
+  # The actual text of the comment.
+  text: String!
+  # The login name of the comment's author.
+  creator: String!
+  # The time (in Bugzilla's timezone) that the comment was added.
+  created: DateTime!
+  # true if this comment is private (only visible to a certain group called the "insidergroup"), false otherwise.
+  isPrivate: Boolean!
+  # An array of comment tags currently set for the comment.
+  tags: [String]!
+}
+
 # Get information about the current page in a Bug Search.
 type PageInfo {
   # `true` if a next page may have data. Does not guarantee
@@ -334,8 +355,11 @@ type BugPager {
 extend type Query {
   # Get information about a single bug using its numeric ID or string alias.
   # Use `bugs()` to search more than one bug at a time.
-  bug(id: ID!): Bug
+  bug(id: Int!): Bug
 
   # Search for multiple bugs based on particular criteria.
   bugs(search: BugSearch!, paging: Paging): BugPager
+
+  # Search for all comments for a particular bug using the bug ID
+  comments(id: Int!): [Comment]!
 }
