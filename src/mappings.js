@@ -70,10 +70,12 @@ export const fieldsToIncludeFields = fields => {
 
   return fields
     .map(field => {
-      if (common.includes(field)) {
-        return field;
-      } else if (inputMappings.includes(field)) {
-        return mappings[field];
+      const lastField = field.substr(field.lastIndexOf('.') + 1);
+
+      if (common.includes(lastField)) {
+        return lastField;
+      } else if (inputMappings.includes(lastField)) {
+        return mappings[lastField];
       }
 
       return undefined;
