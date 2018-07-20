@@ -269,6 +269,12 @@ input BugSearch {
   # Search the "Status Whiteboard" field on bugs for a substring. Works the same as the `summaries`
   # field, but searches the Status Whiteboard field.
   whiteboards: [String]
+
+  # The field in the bug to be used as advanced query parameters
+  f1: String,
+
+  # The conditional of the field stated in f1 written in small letters to be used as advanced query
+  o1: String,
 }
 
 type Comment {
