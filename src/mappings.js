@@ -69,13 +69,13 @@ export const fieldsToIncludeFields = fields => {
   const inputMappings = Object.keys(mappings);
 
   return fields
-    .map(field => {
-      const lastField = field.substr(field.lastIndexOf('.') + 1);
+    .map(nestedField => {
+      const field = nestedField.split('.').slice(-1)[0];
 
-      if (common.includes(lastField)) {
-        return lastField;
-      } else if (inputMappings.includes(lastField)) {
-        return mappings[lastField];
+      if (common.includes(field)) {
+        return field;
+      } else if (inputMappings.includes(field)) {
+        return mappings[field];
       }
 
       return undefined;
