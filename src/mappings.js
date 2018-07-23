@@ -69,8 +69,8 @@ export const fieldsToIncludeFields = fields => {
   const inputMappings = Object.keys(mappings);
 
   return fields
-    .map(nestedField => {
-      const field = nestedField.split('.').slice(-1)[0];
+    .map(f => {
+      const field = f.split('.').slice(-1)[0];
 
       if (common.includes(field)) {
         return field;
