@@ -70,10 +70,16 @@ export const fieldsToIncludeFields = fields => {
 
   return fields
     .map(field => {
-      if (common.includes(field)) {
-        return field;
-      } else if (inputMappings.includes(field)) {
-        return mappings[field];
+      // Use array destructuring to put the first item in the array
+      // in the lastField variable.
+      const [lastField] = field.split('.').slice(-1);
+
+      if (common.includes(lastField)) {
+        return lastField;
+      } else if (inputMappings.includes(lastField)) {
+        return mappings[lastField];
+      } else if (field.includes('assignedTo')) {
+        return mappings.assignedTos;
       }
 
       return undefined;
