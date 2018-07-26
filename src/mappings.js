@@ -44,6 +44,7 @@ export const mappings = {
   remainingTime: 'remaining_time',
   seeAlso: 'see_also',
   targetMilestone: 'target_milestone',
+  value: 'v1',
   assignedTos: 'assigned_to',
   components: 'component',
   createdAtOrAfter: 'creation_time',

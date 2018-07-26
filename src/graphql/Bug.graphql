@@ -270,11 +270,14 @@ input BugSearch {
   # field, but searches the Status Whiteboard field.
   whiteboards: [String]
 
-  # The field in the bug to be used as advanced query parameters
+  # The name of the field being searched as advanced query parameters
   field: String,
 
-  # The conditional of the field stated in f1 written in small letters to be used as advanced query
+  # The comparison operator for `field` written in small letters to be used as advanced query
   operator: String,
+
+  # The value to which the `field` is being compared
+  value: String,
 }
 
 type Comment {
