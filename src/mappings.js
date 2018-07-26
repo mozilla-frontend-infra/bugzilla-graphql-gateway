@@ -78,6 +78,8 @@ export const fieldsToIncludeFields = fields => {
         return lastField;
       } else if (inputMappings.includes(lastField)) {
         return mappings[lastField];
+      } else if (field.includes('assignedTo')) {
+        return mappings.assignedTos;
       }
 
       return undefined;
