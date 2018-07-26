@@ -69,13 +69,15 @@ export const fieldsToIncludeFields = fields => {
   const inputMappings = Object.keys(mappings);
 
   return fields
-    .map(f => {
-      const field = f.split('.').slice(-1)[0];
+    .map(field => {
+      // Use array destructuring to put the first item in the array
+      // in the lastField variable.
+      const [lastField] = field.split('.').slice(-1);
 
-      if (common.includes(field)) {
-        return field;
-      } else if (inputMappings.includes(field)) {
-        return mappings[field];
+      if (common.includes(lastField)) {
+        return lastField;
+      } else if (inputMappings.includes(lastField)) {
+        return mappings[lastField];
       }
 
       return undefined;
