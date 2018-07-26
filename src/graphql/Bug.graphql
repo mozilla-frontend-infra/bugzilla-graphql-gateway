@@ -271,10 +271,10 @@ input BugSearch {
   whiteboards: [String]
 
   # The field in the bug to be used as advanced query parameters
-  f1: String,
+  field: String,
 
   # The conditional of the field stated in f1 written in small letters to be used as advanced query
-  o1: String,
+  operator: String,
 }
 
 type Comment {
