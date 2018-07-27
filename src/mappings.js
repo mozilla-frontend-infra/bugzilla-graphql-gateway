@@ -33,18 +33,15 @@ export const mappings = {
   dependsOn: 'depends_on',
   duplicateOf: 'dupe_of',
   estimatedTime: 'estimated_time',
-  field: 'f1',
   isCcAccessible: 'is_cc_accessible',
   isConfirmed: 'is_confirmed',
   isOpen: 'is_open',
   isCreatorAccessible: 'is_creator_accessible',
   lastChanged: 'last_change_time',
   operatingSystem: 'op_sys',
-  operator: 'o1',
   remainingTime: 'remaining_time',
   seeAlso: 'see_also',
   targetMilestone: 'target_milestone',
-  value: 'v1',
   assignedTos: 'assigned_to',
   components: 'component',
   createdAtOrAfter: 'creation_time',
@@ -66,6 +63,12 @@ export const mappings = {
   urls: 'url',
   versions: 'version',
   whiteboards: 'whiteboard',
+};
+
+const advancedQuery = {
+  fields: 'f',
+  operators: 'o',
+  values: 'v',
 };
 
 export const fieldsToIncludeFields = fields => {
@@ -90,6 +93,18 @@ export const searchToQuery = args => {
   return Object.entries(args).reduce((query, [key, value]) => {
     if (!value) {
       return query;
+    }
+
+    if (key in advancedQuery) {
+      const advQuery = value.reduce((prev, field, idx) => {
+        Object.assign(prev, {
+          [`${advancedQuery[key]}${idx + 1}`]: field,
+        });
+
+        return prev;
+      }, {});
+
+      return { ...query, ...advQuery };
     }
 
     const queryKey = common.includes(key)
