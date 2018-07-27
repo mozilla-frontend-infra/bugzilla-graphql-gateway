@@ -37,6 +37,36 @@ type Flag {
   requestee: String
 }
 
+# Condition for the operators in `BugSearch`
+enum Condition {
+  IS_EQUAL_TO
+  IS_NOT_EQUAL_TO
+  IS_EQUAL_TO_ANY_OF_THE_STRING
+  CONTAINS_THE_STRING
+  CONTAINS_THE_STRING_WITH_EXACT_CASE
+  DOES_NOT_CONTAIN_IN_THE_STRING
+  CONTAINS_ANY_OF_THE_STRING
+  CONTAINS_ALL_OF_THE_STRING
+  CONTAINS_NONE_OF_THE_STRING
+  MATCHES_REGEX
+  DOES_NOT_MATCH_REGEX
+  IS_LESS_THAN
+  IS_LESS_THAN_OR_EQUAL_TO
+  IS_GREATER_THAN
+  IS_GREATER_THAN_OR_EQUAL_TO
+  CONTAINS_ANY_OF_THE_WORDS
+  CONTAINS_ALL_OF_THE_WORDS
+  CONTAINS_NONE_OF_THE_WORDS
+  CHANGED_BEFORE
+  CHANGED_AFTER
+  CHANGED_FROM
+  CHANGED_TO
+  CHANGED_BY
+  MATCHES
+  DOES_NOT_MATCH
+  IS_NOT_EMPTY
+  IS_EMPTY
+}
 # Gets information about particular bugs in the database.
 type Bug {
   # The total number of hours that this bug has taken so far.
@@ -274,7 +304,7 @@ input BugSearch {
   fields: [String],
 
   # The comparison operators for `field` written in small letters to be used as advanced query
-  operators: [String],
+  operators: [Condition],
 
   # The values to which the `field` is being compared
   values: [String],
