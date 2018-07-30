@@ -99,6 +99,24 @@ const operatorMappings = {
   IS_NOT_EMPTY: 'isnotempty',
   IS_EMPTY: 'isempty',
 };
+const fieldMappings = {
+  id: 'bug_id',
+  assignedTo: 'assigned_to',
+  comment: 'longdesc',
+  component: 'component',
+  content: 'content',
+  created: 'creation_ts',
+  keywords: 'keywords',
+  lastChanged: 'days_elapsed',
+  mentor: 'bug_mentor',
+  product: 'product',
+  reporter: 'reporter',
+  resolution: 'resolution',
+  status: 'bug_status',
+  summary: 'short_desc',
+  tag: 'tags',
+  whiteboards: 'status_whiteboard',
+};
 
 export const fieldsToIncludeFields = fields => {
   const inputMappings = Object.keys(mappings);
@@ -128,7 +146,9 @@ export const searchToQuery = args => {
       const advQuery = value.reduce((prev, field, idx) => {
         Object.assign(prev, {
           [`${advancedQuery[key]}${idx + 1}`]:
-            key === 'operators' ? operatorMappings[field] : field,
+            key === 'operators'
+              ? operatorMappings[field]
+              : (key === 'fields' && fieldMappings[field]) || field,
         });
 
         return prev;
