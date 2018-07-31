@@ -65,6 +65,59 @@ export const mappings = {
   whiteboards: 'whiteboard',
 };
 
+const advancedQuery = {
+  fields: 'f',
+  operators: 'o',
+  values: 'v',
+};
+const operatorMappings = {
+  IS_EQUAL_TO: 'equals',
+  IS_NOT_EQUAL_TO: 'not_equals',
+  IS_EQUAL_TO_ANY_OF_THE_STRING: 'anyexact',
+  CONTAINS_THE_STRING: 'substring',
+  CONTAINS_THE_STRING_WITH_EXACT_CASE: 'casesubstring',
+  DOES_NOT_CONTAIN_IN_THE_STRING: 'notsubstring',
+  CONTAINS_ANY_OF_THE_STRING: 'anywordssubstr',
+  CONTAINS_ALL_OF_THE_STRING: 'allwordssubstr',
+  CONTAINS_NONE_OF_THE_STRING: 'nowordssubstr',
+  MATCHES_REGEX: 'regexp',
+  DOES_NOT_MATCH_REGEX: 'notregexp',
+  IS_LESS_THAN: 'lessthan',
+  IS_LESS_THAN_OR_EQUAL_TO: 'lessthaneq',
+  IS_GREATER_THAN: 'greaterthan',
+  IS_GREATER_THAN_OR_EQUAL_TO: 'greaterthaneq',
+  CONTAINS_ANY_OF_THE_WORDS: 'anywords',
+  CONTAINS_ALL_OF_THE_WORDS: 'allwords',
+  CONTAINS_NONE_OF_THE_WORDS: 'nowords',
+  CHANGED_BEFORE: 'changedbefore',
+  CHANGED_AFTER: 'changedafter',
+  CHANGED_FROM: 'changedfrom',
+  CHANGED_TO: 'changedto',
+  CHANGED_BY: 'changedby',
+  MATCHES: 'matches',
+  DOES_NOT_MATCH: 'notmatches',
+  IS_NOT_EMPTY: 'isnotempty',
+  IS_EMPTY: 'isempty',
+};
+const fieldMappings = {
+  id: 'bug_id',
+  assignedTo: 'assigned_to',
+  comment: 'longdesc',
+  component: 'component',
+  content: 'content',
+  created: 'creation_ts',
+  keywords: 'keywords',
+  lastChanged: 'days_elapsed',
+  mentor: 'bug_mentor',
+  product: 'product',
+  reporter: 'reporter',
+  resolution: 'resolution',
+  status: 'bug_status',
+  summary: 'short_desc',
+  tag: 'tags',
+  whiteboards: 'status_whiteboard',
+};
+
 export const fieldsToIncludeFields = fields => {
   const inputMappings = Object.keys(mappings);
 
@@ -93,6 +146,21 @@ export const searchToQuery = args => {
   return Object.entries(args).reduce((query, [key, value]) => {
     if (!value) {
       return query;
+    }
+
+    if (key in advancedQuery) {
+      const advQuery = value.reduce((prev, field, idx) => {
+        Object.assign(prev, {
+          [`${advancedQuery[key]}${idx + 1}`]:
+            key === 'operators'
+              ? operatorMappings[field]
+              : (key === 'fields' && fieldMappings[field]) || field,
+        });
+
+        return prev;
+      }, {});
+
+      return { ...query, ...advQuery };
     }
 
     const queryKey = common.includes(key)
