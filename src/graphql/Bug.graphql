@@ -301,13 +301,13 @@ input BugSearch {
   whiteboards: [String]
 
   # The name of the fields being searched as advanced query parameters
-  fields: [String],
+  fields: [String]
 
   # The comparison operators for `field` written in small letters to be used as advanced query
-  operators: [Condition],
+  operators: [Condition]
 
   # The values to which the `field` is being compared
-  values: [String],
+  values: [String]
 }
 
 type Comment {
