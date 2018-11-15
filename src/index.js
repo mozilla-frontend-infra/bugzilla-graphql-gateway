@@ -1,4 +1,4 @@
-import { GraphQLServer } from '@eliperelman/graphql-yoga';
+import { GraphQLServer } from 'graphql-yoga';
 import depthLimit from 'graphql-depth-limit';
 import { createComplexityLimitRule } from 'graphql-validation-complexity';
 import compression from 'compression';
