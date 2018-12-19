@@ -39,7 +39,7 @@
     "graphql-list-fields": "^2.0.1",
     "graphql-type-json": "^0.2.0",
     "graphql-validation-complexity": "^0.2.2",
-    "graphql-yoga": "^1.16.7",
+    "graphql-yoga": "^1.16.9",
     "node-fetch": "^2.0.0",
     "query-string": "^6.0.0",
     "sift": "^5.1.0",
