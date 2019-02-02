@@ -146,6 +146,8 @@ export const searchToQuery = args => {
   return Object.entries(args).reduce((query, [key, value]) => {
     if (!value) {
       return query;
+    } else if (value instanceof Date) {
+      value = value.toISOString();
     }
 
     if (key in advancedQuery) {
