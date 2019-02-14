@@ -30,7 +30,7 @@ export default () => {
         };
         const url = `${endpoint}?${stringify(pagedQuery)}`;
         const response = await fetch(url);
-        const { bugs } = await response.json();
+        const { bugs = [] } = await response.json();
         const hasNextPage = bugs.length >= pageSize;
         const hasPreviousPage = page > 0;
 
