@@ -72,7 +72,7 @@ const advancedQuery = {
 };
 const operatorMappings = {
   IS_EQUAL_TO: 'equals',
-  IS_NOT_EQUAL_TO: 'not_equals',
+  IS_NOT_EQUAL_TO: 'notequals',
   IS_EQUAL_TO_ANY_OF_THE_STRING: 'anyexact',
   CONTAINS_THE_STRING: 'substring',
   CONTAINS_THE_STRING_WITH_EXACT_CASE: 'casesubstring',
