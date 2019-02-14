@@ -146,6 +146,14 @@ export const searchToQuery = args => {
   return Object.entries(args).reduce((query, [key, value]) => {
     if (!value) {
       return query;
+    } else if (value instanceof Date) {
+      // When the Date string is sent to the server, the graphql-iso-date
+      // package converts this into a JavaScript Date. When this Date object
+      // is eventually passed to the query-string stringify() it isn't converted
+      // into an ISO-8601 date string, so here we force all dates to be stored
+      // back as an ISO-8601 date string to be sent to Bugzilla in a format it
+      // recognizes.
+      value = value.toISOString();
     }
 
     if (key in advancedQuery) {
