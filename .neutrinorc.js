@@ -36,6 +36,7 @@ module.exports = {
       }
     }],
     ['@neutrinojs/node', {
+      hot: false,
       babel: {
         plugins: [
           require.resolve('babel-plugin-transform-object-rest-spread'),
@@ -43,6 +44,13 @@ module.exports = {
       },
     }],
     (neutrino) => {
+      // replace start-server with restart-server
+      neutrino.config.when(neutrino.options.command === 'start', config => {
+        config.plugins.delete('start-server');
+        neutrino.use(['neutrino-middleware-restart-server', {
+          name: 'index.js',
+        }]);
+      });
       neutrino.config.module
         .rule('graphql')
           .test(/\.graphql$/)

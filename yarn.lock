@@ -4633,6 +4633,11 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
   integrity sha512-MFh0d/Wa7vkKO3Y3LlacqAEeHK0mckVqzDieUKTT+KGxi+zIpeVsFxymkIiRpbpDziHc290Xr9A1O4Om7otoRA==
 
+neutrino-middleware-restart-server@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/neutrino-middleware-restart-server/-/neutrino-middleware-restart-server-1.0.1.tgz#ab5b4197b973d602a204bb47916a5f57e1c045c6"
+  integrity sha512-23zi3LVRzY92EX4RgditXEYh93hB+taX2+fqzTKJC+AWJ2pkouzAFZwg4uuQ48bar3RpCmZDngKXQpDsSAjofQ==
+
 neutrino@^8.1.1:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/neutrino/-/neutrino-8.3.0.tgz#36feaa00448d7ca413193e58d51798c2568f672d"

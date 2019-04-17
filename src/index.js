@@ -18,11 +18,7 @@ process.on('unhandledRejection', reason => {
 let graphQLServer;
 const port = +process.env.PORT || 3090;
 const load = async props => {
-  if (!graphQLServer) {
-    graphQLServer = new GraphQLServer(props);
-  } else {
-    await graphQLServer.reload(() => props);
-  }
+  graphQLServer = new GraphQLServer(props);
 
   graphQLServer.express.use(compression());
 };
@@ -52,9 +48,3 @@ load(props()).then(async () => {
   );
   /* eslint-enable no-console */
 });
-
-if (module.hot) {
-  module.hot.accept(['./graphql', './resolvers', './loaders'], () => {
-    load(props());
-  });
-}

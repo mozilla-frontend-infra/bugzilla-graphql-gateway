@@ -153,6 +153,7 @@ export const searchToQuery = args => {
       // into an ISO-8601 date string, so here we force all dates to be stored
       // back as an ISO-8601 date string to be sent to Bugzilla in a format it
       // recognizes.
+      // eslint-disable-next-line no-param-reassign
       value = value.toISOString();
     }
 
