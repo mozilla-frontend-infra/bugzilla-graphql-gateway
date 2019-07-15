@@ -12,7 +12,9 @@
   "scripts": {
     "build": "neutrino build --require dotenv/config",
     "start": "neutrino start --require dotenv/config",
-    "lint": "neutrino lint --require dotenv/config"
+    "lint": "neutrino lint --require dotenv/config",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "lint-staged": {
     "*.js": "yarn lint"
@@ -44,6 +46,8 @@
     "node-fetch": "^2.0.0",
     "query-string": "^6.0.0",
     "sift": "^5.1.0",
-    "source-map-support": "^0.5.3"
-  }
+    "source-map-support": "^0.5.3",
+    "snyk": "^1.193.2"
+  },
+  "snyk": true
 }
