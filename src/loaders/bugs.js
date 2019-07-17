@@ -13,7 +13,9 @@ export default () => {
       queries.map(async ({ id, query }) => {
         const url = `${endpoint}/${id}?${stringify(query)}`;
         const response = await fetch(url);
-        const { bugs: [bug] } = await response.json();
+        const {
+          bugs: [bug],
+        } = await response.json();
 
         return new Bug(bug);
       })

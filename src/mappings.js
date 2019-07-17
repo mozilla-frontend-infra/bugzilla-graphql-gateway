@@ -174,7 +174,9 @@ export const searchToQuery = args => {
 
     const queryKey = common.includes(key)
       ? key
-      : inputMappings.includes(key) ? mappings[key] : key;
+      : inputMappings.includes(key)
+      ? mappings[key]
+      : key;
 
     Object.assign(query, {
       [queryKey]: Array.isArray(value)
