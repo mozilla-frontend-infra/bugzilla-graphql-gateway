@@ -1,5 +1,7 @@
 # Bugzilla GraphQL Gateway
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mozilla-frontend-infra/bugzilla-graphql-gateway.svg)](https://greenkeeper.io/)
+
 An intermediary gateway between a GraphQL client and the Bugzilla REST API.
 Currently only supports public `query` operations, not `mutation` or `subscription`.
 
