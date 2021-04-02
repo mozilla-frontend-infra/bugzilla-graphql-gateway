@@ -14,6 +14,7 @@ export default {
       return loaders.bug.load({ id, query });
     },
     bugs(parent, { search, paging = {} }, { loaders }, info) {
+      console.log(searchToQuery({ ...search, apiKey }));
       const query = {
         ...searchToQuery({
           ...search,
