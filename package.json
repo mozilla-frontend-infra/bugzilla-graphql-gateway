@@ -46,7 +46,7 @@
     "node-fetch": "^2.6.1",
     "query-string": "^6.0.0",
     "sift": "^5.1.0",
-    "source-map-support": "^0.5.3",
+    "source-map-support": "^0.5.12",
     "snyk": "^1.193.2"
   },
   "snyk": true
