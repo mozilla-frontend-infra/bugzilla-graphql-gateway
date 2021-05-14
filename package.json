@@ -25,7 +25,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
-    "husky": "^0.14.3",
+    "husky": "6.0.0",
     "lint-staged": "^7.0.0",
     "neutrino": "^8.1.1",
     "neutrino-middleware-restart-server": "^1.0.1",
