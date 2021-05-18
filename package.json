@@ -45,7 +45,7 @@
     "graphql-yoga": "^1.16.9",
     "node-fetch": "^2.6.1",
     "query-string": "^6.0.0",
-    "sift": "^5.1.0",
+    "sift": "13.5.4",
     "source-map-support": "^0.5.3",
     "snyk": "^1.193.2"
   },

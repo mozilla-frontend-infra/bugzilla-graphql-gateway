@@ -6408,10 +6408,10 @@ shebang-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
   integrity sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
 
-sift@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/sift/-/sift-5.1.0.tgz#1bbf2dfb0eb71e56c4cc7fb567fbd1351b65015e"
-  integrity sha1-G78t+w63HlbEzH+1Z/vRNRtlAV4=
+sift@13.5.4:
+  version "13.5.4"
+  resolved "https://registry.yarnpkg.com/sift/-/sift-13.5.4.tgz#7b2a67f724c8b2fca121fcfdef4011bb1ea4e3ef"
+  integrity sha512-J/d0r/MJlD7vG3j6FZI3/KnN+MxEmPUx2nyKNawysbl2ktisEnAWI5j0AgHM19p4xFA2vDXve4i8TQYYfi9O6Q==
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
