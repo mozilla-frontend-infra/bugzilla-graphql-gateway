@@ -26,7 +26,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^0.14.3",
-    "lint-staged": "^7.0.0",
+    "lint-staged": "11.2.3",
     "neutrino": "^8.1.1",
     "neutrino-middleware-restart-server": "^1.0.1",
     "prettier": "^1.10.2",
