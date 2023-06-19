@@ -30,7 +30,7 @@
     "neutrino": "^8.1.1",
     "neutrino-middleware-restart-server": "^1.0.1",
     "prettier": "^1.10.2",
-    "raw-loader": "^0.5.1"
+    "raw-loader": "^4.0.0"
   },
   "dependencies": {
     "compression": "^1.7.2",
