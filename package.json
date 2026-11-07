@@ -20,14 +20,14 @@
     "*.js": "yarn lint"
   },
   "devDependencies": {
-    "@neutrinojs/airbnb-base": "^8.1.1",
-    "@neutrinojs/node": "^8.1.1",
+    "@neutrinojs/airbnb-base": "^9.0.0",
+    "@neutrinojs/node": "^9.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.0",
-    "neutrino": "^8.1.1",
+    "neutrino": "^9.0.0",
     "neutrino-middleware-restart-server": "^1.0.1",
     "prettier": "^1.10.2",
     "raw-loader": "^0.5.1"
